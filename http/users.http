@@ -1,0 +1,35 @@
+@host = http://localhost:3000/api/users
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTcxMjM2MTY3NSwiZXhwIjoxNzEyNDA0ODc1fQ.y_YJegyYGTZdHEJ6zkfwYeaQaQVAaLwpig2DREYty6o
+
+### GET /users?quantity=10
+# By default `quantity = 10`
+GET {{host}}?quantity=5
+x-token: {{token}}
+
+### GET /users:id
+GET {{host}}/8
+x-token: {{token}}
+
+### POST /users
+POST {{host}}
+Content-Type: application/json
+x-token: {{token}}
+
+{
+  "name": "test5",
+  "email": "test5@mail.com",
+  "password": "admin123"
+}
+
+### PATCH /users/:id
+PATCH {{host}}/2
+Content-Type: application/json
+x-token: {{token}}
+
+{
+  "email": "montoya@email.com"
+}
+
+### DELETE /users/:id
+DELETE {{host}}/1
+x-token: {{token}}
